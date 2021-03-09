@@ -1,0 +1,52 @@
+.news-item-button {
+  display: inline-flex;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
+  position: absolute;
+  bottom: 1.25rem;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.news-item-card {
+  width: 19rem;
+  margin-top: 2rem;
+}
+
+.news-item-name {
+  font-weight: 700;
+  width: 100%;
+  margin-right: 5.7rem;
+}
+
+.news-item-date {
+  text-overflow: unset;
+  overflow: hidden;
+  width: 89px;
+  height: 1.2em;
+  white-space: nowrap;
+  position: absolute;
+  right: 1.25rem;
+}
+
+.card-img-top {
+  height: 14rem;
+  width: 100%;
+  //object-fit: cover;
+}
+
+.news-item-body {
+  height: 6rem;
+  margin-bottom: 4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

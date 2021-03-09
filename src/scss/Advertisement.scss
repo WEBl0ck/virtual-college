@@ -1,0 +1,60 @@
+.announce-section {
+  width: 100%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+  margin: 3rem 0rem;
+  border-radius: 0.6rem;
+}
+
+.announce-section-name {
+  display: inline-flex;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.announce-section-top {
+  height: 7rem;
+  width: 100%;
+}
+
+.announce-section-bottom {
+  height: 100%;
+}
+
+.announce-section-button {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #000;
+  margin: 2rem 0 1rem 0;
+  cursor: pointer;
+  display: inline-flex;
+  &:hover {
+    .button-arrow {
+      animation: slide1 1s ease-in-out infinite;
+    }
+  }
+}
+
+.button-arrow {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.8rem;
+}
+
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}

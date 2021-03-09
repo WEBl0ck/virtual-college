@@ -1,0 +1,35 @@
+.card-item {
+  z-index: 20;
+  width: 12rem;
+  height: 15rem;
+  background-color: #fff;
+  position: relative;
+  border-radius: 0.6rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  &:hover {
+    .card-name {
+      font-weight: 700;
+    }
+  }
+}
+
+.card-icon {
+  height: 12rem;
+}
+
+.card-name {
+  text-align: center;
+  font-size: 1.6rem;
+  transition: 0.3s;
+}
+
+.card-icon__image {
+  width: 78%;
+  height: auto;
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+}

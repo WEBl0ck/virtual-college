@@ -1,0 +1,23 @@
+.partners-section {
+  width: 100%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+  margin: 3rem 0rem;
+  border-radius: 0.6rem;
+}
+
+.partners-section-name {
+  display: inline-flex;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
+}
+
+.slider-item {
+  img {
+    max-width: 11rem !important;
+  }
+}

@@ -1,0 +1,21 @@
+.slider-wrapper {
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.slider-item {
+  height: auto;
+  display: flex !important;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.slick-slide {
+  padding: 0 1rem;
+}
