@@ -1,0 +1,29 @@
+textarea {
+  resize: none;
+}
+
+.search-container {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #00000065;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-field {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 0.6rem;
+  width: 50%;
+  padding: 12px 10px;
+  height: 3.4rem;
+  border: none;
+  font-weight: 700;
+  font-size: 1.3rem;
+  &::placeholder {
+    color: #000;
+  }
+}

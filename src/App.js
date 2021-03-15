@@ -13,19 +13,22 @@ import {
   Header,
   MainSlider,
   CardsFields,
-  Announcement,
-  News,
   Partners,
   Footer,
   Card,
   SectionContainer,
-} from './components';
+  Section,
+  NewsItem,
+  AnnounceItem,
+} from './components/index';
 
 import { PostList, PostEdit, PostCreate, PostShow } from './_admin/PostMethods';
 import CustomLoginPage from './_admin/CustomLoginPage';
 import { Dashboard } from './_admin';
 import MainLayout from './layouts/MainLayout';
 import { firebaseConfig as config } from './firebase-config';
+import './i18n';
+import { useTranslation } from 'react-i18next';
 
 import UniversityImg from './assets/images/university.svg';
 import Student from './assets/images/student.svg';
@@ -37,6 +40,7 @@ import Services from './assets/images/planing.svg';
 import Science from './assets/images/atom.svg';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import InfoIcon from '@material-ui/icons/Info';
+import NewsIcon from './assets/images/warning.svg';
 
 const options = {
   logging: true,
@@ -48,6 +52,7 @@ const authProvider = FirebaseAuthProvider(config, options);
 function App() {
   const [announcements, setAnnouncements] = useState([]);
   const [news, setNews] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     axios
@@ -65,6 +70,93 @@ function App() {
       });
   }, []);
 
+  // Search
+  // Code refactoring
+  // Menu
+  // Nav bar
+  //
+
+  const routes = [
+    {
+      path: '/news',
+      sectionName: t('header_news'),
+      visibleSidebar: true,
+      sectionSource: news,
+    },
+    {
+      path: '/announcements',
+      sectionName: t('header_announcement'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/information',
+      sectionName: t('header_information'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/about',
+      sectionName: t('header_about'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/introduction',
+      sectionName: t('top_menu_introduction'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/to-the-students',
+      sectionName: t('top_menu_for_student'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/faculties',
+      sectionName: t('top_menu_faculties'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/about-college',
+      sectionName: t('top_menu_about'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/library',
+      sectionName: t('bottom_menu_library'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/dist-learning',
+      sectionName: t('bottom_menu_distance_learning'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/services',
+      sectionName: t('bottom_menu_services'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/science',
+      sectionName: t('bottom_menu_science'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+    {
+      path: '/partners',
+      sectionName: t('partners_title'),
+      visibleSidebar: true,
+      sectionSource: announcements,
+    },
+  ];
+
   return (
     <React.Fragment>
       <Router>
@@ -78,33 +170,51 @@ function App() {
                 </div>
                 <div className="card-field-top">
                   <CardsFields>
-                    <Card cardName={'Вступ'} cardIcon={UniversityImg} />
-                    <Card cardName={'Студенту'} cardIcon={Student} />
-                    <Card cardName={'Факультети'} cardIcon={Cap} />
-                    <Card cardName={'Про Коледж'} cardIcon={Book} />
+                    <Card cardName={t('top_menu_introduction')} cardIcon={UniversityImg} cardLink={'introduction'} />
+                    <Card cardName={t('top_menu_for_student')} cardIcon={Student} cardLink={'to-the-students'} />
+                    <Card cardName={t('top_menu_faculties')} cardIcon={Cap} cardLink={'faculties'} />
+                    <Card cardName={t('top_menu_about')} cardIcon={Book} cardLink={'about-college'} />
                   </CardsFields>
                 </div>
-                <Announcement announcements={announcements} />
-                <News news={news} />
+                <Section
+                  sectionLink={'/announcements'}
+                  sectionTitle={'announcements_title'}
+                  sectionButton={'announcements_button'}>
+                  <AnnounceItem sectionSource={announcements} maxElement={4} newsIcon={NewsIcon} />
+                </Section>
+                <Section sectionLink={'/news'} sectionTitle={'news_title'} sectionButton={'news_button'}>
+                  <NewsItem sectionSource={news} maxElement={6} newsIcon={NewsIcon} buttonText={t('news-button')} />
+                </Section>
                 <div className="card-field-bottom">
                   <CardsFields>
-                    <Card cardName={'Бібліотека'} cardIcon={Books} />
-                    <Card cardName={'Дист. навчання'} cardIcon={Computer} />
-                    <Card cardName={'Сервіси'} cardIcon={Services} />
-                    <Card cardName={'Наука'} cardIcon={Science} />
+                    <Card cardName={t('bottom_menu_library')} cardIcon={Books} cardLink={'library'} />
+                    <Card
+                      cardName={t('bottom_menu_distance_learning')}
+                      cardIcon={Computer}
+                      cardLink={'dist-learning'}
+                    />
+                    <Card cardName={t('bottom_menu_services')} cardIcon={Services} cardLink={'services'} />
+                    <Card cardName={t('bottom_menu_science')} cardIcon={Science} cardLink={'science'} />
                   </CardsFields>
                 </div>
-                <Partners />
+                <Section sectionLink={'/partners'} sectionTitle={'partners_title'}>
+                  <Partners />
+                </Section>
               </Container>
               <Footer />
             </div>
           </Route>
-          <Route path="/news">
-            <SectionContainer sectionName="Новини" visibleSidebar={true} sectionSource={news} />
-          </Route>
-          <Route path="/announcements">
-            <SectionContainer sectionName="Оголошення" visibleSidebar={true} sectionSource={announcements} />
-          </Route>
+          {routes &&
+            routes.map((item) => (
+              <Route path={item.path} key={item.path}>
+                <SectionContainer
+                  sectionName={item.sectionName}
+                  visibleSidebar={item.visibleSidebar}
+                  sectionSource={item.sectionSource}
+                  sectionPath={item.path}
+                />
+              </Route>
+            ))}
           <Route path="/admin">
             <div>
               <Admin

@@ -1,0 +1,45 @@
+.footer {
+  height: 15rem;
+  width: 100%;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+}
+
+.footer-inner {
+  width: 1154px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.footer-left {
+  color: #fff;
+}
+
+.college-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.college-name-numbers {
+  padding: 0.5rem;
+  background-color: #fff;
+  color: #000;
+}
+
+.coolege-contacts__icon {
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+.web-site-creator a {
+  color: #fff;
+  svg {
+    path {
+      fill: #fff;
+    }
+  }
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
