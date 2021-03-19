@@ -2,9 +2,7 @@ import React from 'react';
 
 import './Partners.scss';
 
-import { Container, Row, Col } from 'react-bootstrap';
 import SliderSlick from 'react-slick';
-import { useTranslation } from 'react-i18next';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -59,8 +57,6 @@ function Partners() {
       },
     ],
   };
-
-  const { t } = useTranslation();
 
   return (
     <div className="partners-section">
